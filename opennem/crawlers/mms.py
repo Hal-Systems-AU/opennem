@@ -194,6 +194,17 @@ AEMOMMSDispatchScada = CrawlerDefinition(
 )
 
 
+AEMOMMSRooftop = CrawlerDefinition(
+    priority=CrawlerPriority.high,
+    schedule=CrawlerSchedule.live,
+    name="au.mms.rooftop",
+    filename_filter=".*_ROOFTOP_PV_ACTUAL_.*",
+    network=NetworkNEM,
+    bucket_size=AEMODataBucketSize.month,
+    processor=run_aemo_mms_crawl,
+)
+
+
 AEMOMMSMeterDataGenDuid = CrawlerDefinition(
     priority=CrawlerPriority.high,
     schedule=CrawlerSchedule.live,
