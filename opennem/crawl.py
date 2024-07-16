@@ -1,6 +1,7 @@
 """Primary OpenNEM crawler
 
 """
+
 import logging
 
 from pydantic import ValidationError
@@ -22,6 +23,7 @@ from opennem.crawlers.mms import (
     AEMOMMSDispatchPrice,
     AEMOMMSDispatchRegionsum,
     AEMOMMSDispatchScada,
+    AEMOMMSRooftop,
     AEMOMMSTradingPrice,
     AEMOMMSTradingRegionsum,
 )
@@ -94,6 +96,7 @@ def load_crawlers(live_load: bool = False) -> CrawlerSet:
             AEMOMMSDispatchRegionsum,
             AEMOMMSDispatchPrice,
             AEMOMMSDispatchScada,
+            AEMOMMSRooftop,
             AEMOMMSTradingPrice,
             AEMOMMSTradingRegionsum,
         ]

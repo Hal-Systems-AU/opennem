@@ -1,4 +1,5 @@
 """ MMS crawler """
+
 import logging
 from datetime import datetime
 
@@ -186,6 +187,17 @@ AEMOMMSDispatchScada = CrawlerDefinition(
     schedule=CrawlerSchedule.live,
     name="au.mms.dispatch_scada",
     filename_filter=".*_DISPATCH_UNIT_SCADA.*",
+    network=NetworkNEM,
+    bucket_size=AEMODataBucketSize.month,
+    processor=run_aemo_mms_crawl,
+)
+
+
+AEMOMMSRooftop = CrawlerDefinition(
+    priority=CrawlerPriority.high,
+    schedule=CrawlerSchedule.live,
+    name="au.mms.rooftop",
+    filename_filter=".*_ROOFTOP_PV_ACTUAL_.*",
     network=NetworkNEM,
     bucket_size=AEMODataBucketSize.month,
     processor=run_aemo_mms_crawl,
